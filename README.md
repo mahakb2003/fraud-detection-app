@@ -101,28 +101,31 @@ The interface opens automatically at:
 ➡ http://127.0.0.1:7860/
 
 7. Project Structure
-├── app.py                       # User interface
-├── fraud_detection.py           # Training pipeline
-├── fraud_detection_pipeline.pkl # Final ML model
-├── AIML Dataset.csv             # Dataset
-├── main.ipynb                   # EDA + training
-├── requirements.txt             # Dependencies
-└── README.md                    # Documentation
-
-8. Skills Demonstrated
+├── app.py                         # Streamlit/Gradio-based user interface
+├── fraud_detection.py             # Training pipeline script
+├── fraud_detection_pipeline.pkl   # Trained ML model (pipeline)
+├── AIML Dataset.csv               # Dataset
+├── main.ipynb                     # EDA + model training notebook
+├── fraud_api/                     # FastAPI + Docker deployment folder
+│   ├── main1.py                   # FastAPI deployment script
+│   ├── Dockerfile                 # Docker configuration for deployment
+│   ├── requirements.txt           # API-specific dependencies
+│   └── fraud_detection_pipeline.pkl # Model copy used inside the API
+└── README.md                      # Documentation
+ 8. Skills Demonstrated
 Technical Skills
 
 Machine Learning (Scikit-Learn)
 
-Working with imbalanced data (SMOTE)
+Handling imbalanced data (SMOTE)
 
 Pipeline engineering
 
-EDA and feature engineering
+EDA & feature engineering
 
 Joblib model serialization
 
-ML deployment
+Model deployment with FastAPI + Docker
 
 Business Skills
 
@@ -132,17 +135,57 @@ Cost-sensitive fraud modeling
 
 Operational decision-making in BFSI
 
-Creating tools for analysts and business users
+Building tools for analysts & internal teams
 
-9. About the Author
+🌐 9. FastAPI Deployment
+
+To make the ML model accessible programmatically, a FastAPI service was created (main1.py):
+
+Loads the trained pipeline
+
+Validates input using Pydantic
+
+Accepts JSON transactions
+
+Returns real-time fraud predictions
+
+API endpoint exposed:
+➡ POST /predict
+Accessible at:
+➡ http://localhost:8000/docs
+
+This provides a production-friendly interface suitable for integration with web apps, mobile apps, and enterprise systems.
+
+📦 10. Docker Containerization & Local Hosting
+
+The entire FastAPI application was containerized using Docker, enabling consistent and portable deployment.
+
+Dockerfile includes:
+
+Python 3.10 base image
+
+Installing all dependencies
+
+Copying the trained model + API code
+
+Running Uvicorn server inside the container
+
+Build the Docker image
+docker build -t fraud_api .
+
+Run the container
+docker run -d -p 8000:8000 fraud_api
+
+
+The container exposes the API at:
+➡ http://localhost:8000
+
+This ensures the model runs consistently across any environment — Windows, Linux, cloud servers, or container orchestration platforms.
+
+11. About the Author
 
 Mahak Bisht
 Data Analyst & Machine Learning Enthusiast
 
-Focused on building scalable, real-world, business-driven ML solutions.
+Focused on building scalable, real-world, business-driven ML systems.
 🔗 GitHub: https://github.com/mahakb2003
-
-
-
-
-
