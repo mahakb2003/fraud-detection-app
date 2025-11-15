@@ -111,43 +111,30 @@ The interface opens automatically at:
 │   ├── Dockerfile                 # Docker configuration for deployment
 │   ├── requirements.txt           # API-specific dependencies
 │   └── fraud_detection_pipeline.pkl # Model copy used inside the API
-└── README.md                      # Documentation
- 8. Skills Demonstrated
-Technical Skills
+└── README.md                      # Documentation ]
 
-Machine Learning (Scikit-Learn)
 
-Handling imbalanced data (SMOTE)
-
-Pipeline engineering
-
-EDA & feature engineering
-
-Joblib model serialization
-
-Model deployment with FastAPI + Docker
-
-Business Skills
-
-Understanding fraud risk frameworks
-
-Cost-sensitive fraud modeling
-
-Operational decision-making in BFSI
-
-Building tools for analysts & internal teams
+8. Skills Demonstrated
+a.Technical Skills
+b.Machine Learning (Scikit-Learn)
+c.Handling imbalanced data (SMOTE)
+d.Pipeline engineering
+e.EDA & feature engineering
+f.Joblib model serialization
+g.Model deployment with FastAPI + Docker
+h.Business Skills
+i.Understanding fraud risk frameworks
+j.Cost-sensitive fraud modeling
+k.Operational decision-making in BFSI
+l.Building tools for analysts & internal teams
 
 🌐 9. FastAPI Deployment
 
-To make the ML model accessible programmatically, a FastAPI service was created (main1.py):
-
-Loads the trained pipeline
-
-Validates input using Pydantic
-
-Accepts JSON transactions
-
-Returns real-time fraud predictions
+-To make the ML model accessible programmatically, a FastAPI service was created (main1.py):
+-Loads the trained pipeline
+-Validates input using Pydantic
+-Accepts JSON transactions
+-Returns real-time fraud predictions
 
 API endpoint exposed:
 ➡ POST /predict
@@ -162,20 +149,14 @@ The entire FastAPI application was containerized using Docker, enabling consiste
 
 Dockerfile includes:
 
-Python 3.10 base image
-
-Installing all dependencies
-
-Copying the trained model + API code
-
-Running Uvicorn server inside the container
-
-Build the Docker image
+-Python 3.10 base image
+-Installing all dependencies
+-Copying the trained model + API code
+-Running Uvicorn server inside the container
+-Build the Docker image
 docker build -t fraud_api .
-
-Run the container
+-Run the container
 docker run -d -p 8000:8000 fraud_api
-
 
 The container exposes the API at:
 ➡ http://localhost:8000
