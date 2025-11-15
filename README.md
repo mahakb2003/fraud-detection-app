@@ -1,147 +1,148 @@
-# Fraud Detection System  
+# 🔍 Fraud Detection System  
 ### Machine Learning Model for Real-Time Transaction Risk Scoring
 
-[UI Screenshot](https://github.com/mahakb2003/fraud-detection-app/blob/main/Screenshot%20(31).png?raw=true)
-## 1. Overview  
-This project demonstrates the development of a production-oriented **Fraud Detection System** designed to identify high-risk financial transactions in real time. It is is an end-to-end **Fraud Detection System** .
-It combines **data science, machine learning, business reasoning, and interactive UI** to demonstrate how modern financial platforms mitigate risk.
- 
-It focuses on solving a core business challenge in digital banking and payment systems:  
-**reducing financial loss by detecting fraudulent transfers without disrupting legitimate user activity.**
-
-The system integrates:
-- A scalable machine learning pipeline  
-- Rigorous handling of imbalanced transaction data  
-- A clean and intuitive Gradio interface for business teams  
+![UI Screenshot](https://github.com/mahakb2003/fraud-detection-app/blob/main/Screenshot%20(31).png?raw=true)
 
 ---
 
-## 2. Business Context  
-Fraud detection is one of the most critical components in the financial ecosystem.  
-Organizations face challenges such as:
+## 1. Overview  
+This project presents a production-ready **Fraud Detection System** designed to identify high-risk financial transactions in real time.  
+
+It is built as an end-to-end pipeline that integrates:
+
+- A fully engineered **machine learning pipeline**  
+- **Imbalanced data handling** using SMOTE  
+- **Automated preprocessing** within the model  
+- An easy-to-use **interactive UI** for business teams  
+
+The system addresses a real-world banking challenge:  
+**detecting fraudulent transfers without blocking genuine customers.**
+
+---
+
+## 2. Business Problem  
+Financial institutions and fintech platforms face challenges like:
 
 - Extremely **imbalanced datasets** (fraud < 0.2%)  
-- The need for **instant decisioning**  
-- Balancing **customer experience** with **risk mitigation**  
-- Preventing **false negatives**, which directly translate to monetary loss  
+- Requirement for **instant decision-making**  
+- Huge financial loss due to **false negatives**  
+- Maintaining a smooth **user experience**  
 
-This project replicates a real scenario faced by banks, wallets, and fintech companies, where ML models must operate reliably at scale while supporting business decisions.
-
----
-
-## 3. Solution Design  
-
-### 3.1 Data Processing  
-- Executed comprehensive exploratory analysis  
-- Cleaned and standardized numerical features  
-- Encoded categorical attributes using OneHotEncoding  
-- Used **SMOTE** to address severe class imbalance  
-
-### 3.2 Machine Learning Model  
-A Scikit-Learn pipeline was designed with:
-
-- **StandardScaler** for numerical scaling  
-- **OneHotEncoder** for categorical features  
-- **Logistic Regression** with balanced class weighting  
-- Reproducible training and evaluation structure  
-
-The model was serialized using Joblib for deployment readiness.
+This project simulates real BFSI risk conditions and shows how ML reduces fraud losses.
 
 ---
 
-## 4. Model Performance (Real Metrics) 
+## 3. Solution Architecture  
 
+### **Data Processing**
+- Performed exploratory data analysis  
+- Standardized numeric features  
+- OneHotEncoded the categorical "type" column  
+- Applied **SMOTE** to balance fraud cases  
 
-The model was trained on **1.9M+ transactions**.
+### **Machine Learning Pipeline**
+A reproducible ML pipeline built using:
 
-### Classification Metrics  
-The model was trained and evaluated on **1.9M+ real transactions**.
+- StandardScaler  
+- OneHotEncoder (drop="first")  
+- SMOTE  
+- Logistic Regression with balanced class weights  
 
+The final pipeline is exported using Joblib for deployment.
+
+---
+
+## 4. Model Performance  
+
+Trained on **1.9M+ real transaction records**, the model achieved:
+
+### **Classification Metrics**
 | Metric | Non-Fraud (0) | Fraud (1) |
-|--------|-----------------|--------------|
+|--------|-----------------|-----------|
 | Precision | 1.00 | 0.02 |
 | Recall | 0.95 | 0.95 |
 | F1 Score | 0.97 | 0.04 |
 
-### Confusion Matrix  
+### **Confusion Matrix**
 [[1804159, 102163],
 [ 122, 2342]]
 
 
-### Interpretation  
-- **High recall (95%) for fraud cases**, which is essential in operational environments  
-- Ensures the system catches nearly all fraudulent transactions  
-- Precision is expectedly low due to extreme class imbalance — typical in BFSI fraud scenarios  
-
-This demonstrates a practical, risk-averse strategy aligned with real business needs.
+### **Interpretation**
+- High recall for fraud cases (95%) — essential for risk systems  
+- Low precision is expected due to extreme imbalance  
+- Business benefit: **almost all fraud attempts are detected**  
 
 ---
 
-## 5. User Interface (Gradio)  
-A streamlined interface was developed for:
+## 5. User Interface  
+A clean, business-friendly UI built for:
 
 - Fraud analysts  
-- Risk teams  
+- Risk management teams  
 - Product managers  
 - Operations teams  
 
-The UI allows users to input transaction details and instantly receive a fraud risk prediction.  
-This bridges the gap between data science and decision-making teams by providing a simple, reliable front end.
+Users enter transaction details and get instant ML predictions.
 
 ---
 
 ## 6. Running the Project  
 
-### Install dependencies  
-
-
+### **Install dependencies**
+```bash
 pip install -r requirements.txt
-
-
-### Start the application  
-
-
+ 
+Run the application
 python app.py
 
 
-The interface opens automatically or runs on `http://127.0.0.1:7860`.
+The interface opens automatically at:
+➡ http://127.0.0.1:7860/
 
----
+7. Project Structure
+├── app.py                       # User interface
+├── fraud_detection.py           # Training pipeline
+├── fraud_detection_pipeline.pkl # Final ML model
+├── AIML Dataset.csv             # Dataset
+├── main.ipynb                   # EDA + training
+├── requirements.txt             # Dependencies
+└── README.md                    # Documentation
 
-## 7. Project Structure  
+8. Skills Demonstrated
+Technical Skills
+
+Machine Learning (Scikit-Learn)
+
+Working with imbalanced data (SMOTE)
+
+Pipeline engineering
+
+EDA and feature engineering
+
+Joblib model serialization
+
+ML deployment
+
+Business Skills
+
+Understanding fraud risk frameworks
+
+Cost-sensitive fraud modeling
+
+Operational decision-making in BFSI
+
+Creating tools for analysts and business users
+
+9. About the Author
+
+Mahak Bisht
+Data Analyst & Machine Learning Enthusiast
+
+Focused on building scalable, real-world, business-driven ML solutions.
+🔗 GitHub: https://github.com/mahakb2003
 
 
-├── app.py # Gradio UI
-├── fraud_detection.py # ML pipeline and training script
-├── fraud_detection_pipeline.pkl # Serialized model
-├── AIML Dataset.csv # Dataset
-├── main.ipynb # Exploratory analysis and training
-├── requirements.txt # Dependencies
-└── README.md # Project documentation
 
 
----
 
-## 8. Key Skills Demonstrated  
-
-### Technical  
-- Machine Learning (Scikit-Learn)  
-- Imbalanced Data Handling (SMOTE)  
-- Pipeline Engineering  
-- Model Deployment using Gradio  
-- Exploratory Data Analysis  
-- Serialization and reproducibility  
-
-### Business  
-- Understanding of fraud risk frameworks  
-- Cost-sensitive modeling  
-- Decision support systems for BFSI  
-- Translating ML outputs into business insights  
-
----
-
-## 9. About the Author  
-**Mahak Bisht**  
-Data Analyst & Machine Learning Enthusiast  
-Focused on building reliable, scalable, business-driven data solutions.  
-GitHub: https://github.com/mahakb2003
